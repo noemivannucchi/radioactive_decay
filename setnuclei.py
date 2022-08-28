@@ -1,6 +1,10 @@
-# set the type of nuclei
 def setnuclei ():
-    nuclei = input('Select the type of radioactive nuclei among "Uranium238", "Plutonium239" or "Radium226"')
+    """ set the type of radioactive nuclei and the relative decay constant k
+    """
+    #ask the user to choose the type of nuclei from a list
+    nuclei = input('Select the type of radioactive nuclei among "Uranium238", "Plutonium239" or "Radium226": ')
+    
+    #set the decay constant k corresponding to the selected nucleus
     if nuclei == 'Uranium238':
         k = 5e-18
     if nuclei == 'Plutonium239':
