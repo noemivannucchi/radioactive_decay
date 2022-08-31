@@ -13,6 +13,7 @@ University of Bologna
   * [setn0](#setn0)
   * [setnuclei](#setnuclei)
   * [readFile](#readFile)
+  * [times.txt](#times.txt)
   * [ode](#ode)
   * [plot](#plot)
 
@@ -27,7 +28,10 @@ $$ N = N_0 e^{-kt} $$
 Therefore, the initial number of radioactive nuclei decays exponentially.
 
 After setting the initial conditions, the decay constant and entering the array containing the time values, integration is performed and the graph of the number of nuclei N remaining after a time t is plotted.
-	
+The figure below shows an example of exponential radioactive decay in the case of Radium226, using the time values in the file "times.txt".
+
+![example_plot_decay](https://user-images.githubusercontent.com/79851600/187657314-e6d6c336-b33a-4131-9278-3d244e72e8f5.png)
+
 ## Technologies
 This project is created with:
 * Python version: 3.8
