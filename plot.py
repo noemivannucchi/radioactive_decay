@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
-from readFile import readFile
-from ode import N
+from readFile import verifyFile
+from ode import N, t
 
 # plot results
-plt.plot(t,N,'r-',linewidth=2)
+plt.plot(verifyFile(t),N,'r-',linewidth=2)
 
 # set x and y labels
 plt.xlabel('time t')
