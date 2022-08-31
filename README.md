@@ -33,7 +33,7 @@ This project is created with:
 * Python version: 3.8
 	
 ## Files
-The project is composed of 6 different files:
+The project is composed of 7 different files:
 ### Model
 It contains the definition of the diferential equation to be solved.
 ### setn0
@@ -42,6 +42,8 @@ It allows you to set the initial number of nuclei $N_0$, which is the initial co
 It allows you to set the type of decaying nuclei among "Uranium238", "Plutonium239" or "Radium226". Each of them is related to a specific decay constant k.
 ### readFile
 It reads from a text file the time values to be used in the model and puts them into an array t.
+### times.txt
+It is just an example of some time values in the case of "Radium226". It can be used to run 'readFile' and 'odeint' functions.
 ### ode
 It solves the differential equation using the python function "odeint", which requires four inputs:
 1. model: Function name that returns derivative values at requested y and t values as dydt = model(y,t,k);
