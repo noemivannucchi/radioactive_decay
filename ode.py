@@ -15,7 +15,9 @@ nuclei = 'Radium226'
 filename = input('Insert the filename with the times: ')
     
 # put the time values from the text file into an array t
+# type(t) = numpy.ndarray
 t = np.loadtxt(filename, unpack = 'True')
 
-# solve ODE
+# solve ODE 
+# type(N) = numpy.ndarray
 N = odeint(model,verifyN0(N0),verifyFile(t),args=(verifynuclei(nuclei),))
