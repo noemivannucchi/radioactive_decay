@@ -9,10 +9,10 @@ University of Bologna
 * [Description of the project](#description-of-the-project)
 * [Technologies](#technologies)
 * [Files](#files)
-  * [Model](#model)
-  * [setn0](#setn0)
-  * [setnuclei](#setnuclei)
-  * [readFile](#readFile)
+  * [Model and test_model](#model)
+  * [setn0 and test_setn0](#setn0)
+  * [setnuclei and test_setnuclei](#setnuclei)
+  * [readFile and test_readFile](#readFile)
   * [times.txt](#times.txt)
   * [ode](#ode)
   * [plot](#plot)
@@ -38,13 +38,13 @@ This project is created with:
 	
 ## Files
 The project is composed of 7 different files:
-### Model
+### Model and test_model
 It contains the definition of the diferential equation to be solved.
-### setn0
+### setn0 and test_setn0
 It allows you to set the initial number of nuclei $N_0$, which is the initial condition to solve the differential equation.
-### setnuclei
+### setnuclei and test_setnuclei
 It allows you to set the type of decaying nuclei among "Uranium238", "Plutonium239" or "Radium226". Each of them is related to a specific decay constant k.
-### readFile
+### readFile and test_readFile
 It reads from a text file the time values to be used in the model and puts them into an array t.
 ### times.txt
 It is just an example of some time values in the case of "Radium226". It can be used to run 'readFile' and 'odeint' functions.
@@ -56,3 +56,5 @@ It solves the differential equation using the python function "odeint", which re
 4. args: it is a tuple sequence of values that allows additional information to be passed into the model function.
 ### plot
 It plots the solution of the differential equation. In this case, it plots the number of nuclei N remaining after a time t.
+
+## Usage
