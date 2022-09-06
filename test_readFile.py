@@ -31,12 +31,24 @@ def test_TypeError_h(a):
 #===========================
 
 def test_elements_float():
+    """positive test that check if the 'verifyFile' function works 
+    when the input is an array with floats elements
+    """
+    #define the array for the input of 'verifyFile' function with floats elements
     a = np.array([1.5,1e3,1.5e5,1e7,1.5e11]) 
+    # check if the 'verifyFile' function returns the same array as in input
     assert verifyFile(a).all() == a.all()
 
 def test_sorting_elements():
-    a = np.array([1.5e5,1e7,1e3,1.5e11,1.5])     
+    """positive test that check if the 'verifyFile' function
+    correctly sorts the elements of the input array
+    """
+    #define the array for the input of 'verifyFile' function with unsorted elements
+    a = np.array([1.5e5,1e7,1e3,1.5e11,1.5])    
+    #define an other array with sorted elements from the previous array
     sorteda = np.array([1.5,1.5e3,1.5e5,1.5e7,1.5e11])
+    #check if the elements in the output array of the 'verifyFile' function
+    #are equal to the elements in the sorted array 'sorteda'
     assert verifyFile(a).all() == sorteda.all()
 
 def test_ValueError():
