@@ -77,3 +77,14 @@ Finally the ODE are solved by the function 'odeint'.
 It plots the solution of the differential equation. In this case, it plots the number of radioacive decaying nuclei N remaining after a time t vs time t (in s).
 You can also set x and y labels and put the grid.
 ## Usage
+To run the tests (property and unit) it is mandatory to have installed the package 'pytest' and you have to write on the command line:
+```python
+ !pytest nametest.py
+```
+
+For example, in the case of the test file 'test_readFile', the command is:
+```python
+ !pytest test_readFile.py
+```
+
+This command will execute all the functions that begin with 'test' and it will show if the tests pass or not.
