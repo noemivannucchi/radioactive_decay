@@ -22,7 +22,7 @@ import pytest
 @given(a = st.lists(elements = st.floats(min_value=0)))
 def test_good_values_h(a):
     """positive test that check if the 'verifyFile' function 
-    works when the input is a sorted array with float positive elements
+    works when the input is an array with float positive elements
     """
     # check that the list 'a' is not empty
     if a != []:
@@ -31,7 +31,7 @@ def test_good_values_h(a):
        # define an array 'c' composed of the sorted elements of the array 'b'
        c = np.sort(b)
        # check if the 'verifyFile' function returns the same array 'c' as in input
-       assert verifyFile(c).all() == c.all()
+       assert verifyFile(b).all() == c.all()
 
 
 #generate a list 'a' composed of float elements smaller than 0
@@ -39,17 +39,15 @@ def test_good_values_h(a):
 @given(a = st.lists(elements = st.floats(max_value=0, exclude_max = True)))
 def test_ValueError_h(a):
     """test that check if the 'verifyFile' function raises a ValueError
-    when the input is a sorted array with float negative elements
+    when the input is an array with float negative elements
     """
     # check that the list 'a' is not empty
     if a != []:
        # convert the list 'a' into a np.array 'b'
        b = np.array(a)
-       # define an array 'c' composed of the sorted elements of the array 'b'
-       c = np.sort(b)
        # check if the 'verifyFile function raises a ValueError using the defined array 'c'
        with pytest.raises(ValueError):
-          verifyFile(c)
+          verifyFile(b)
 
 
 #generate a list 'a' composed of string elements
@@ -99,7 +97,7 @@ def test_ValueError():
     when one of the elements of the input array is negative
     """
     #define the array for the input of 'verifyFile' function with one negative element
-    a = np.array([-1.5,1e3,1.5e5,1e7,1.5e11])   
+    a = np.array([1.5,-1e3,1.5e5,1e7,-1.5e11])   
     # check if the 'verifyFile' function raises a ValueError using the defined array a
     with pytest.raises(ValueError):
         verifyFile(a)
@@ -109,7 +107,7 @@ def test_TypeError():
     when one of the elements of the input array is not float
     """
     #define the array for the input of 'verifyFile' function with one string element
-    a = np.array(['a',1e3,1.5e5,1e7,1.5e11])   
+    a = np.array([1e3,1.5e5,1e7,'a',1.5e11])   
     # check if the 'verifyFile' function raises a TypeError using the defined array a
     with pytest.raises(TypeError):
         verifyFile(a)
@@ -119,6 +117,6 @@ def test_zero():
     when one of the elements of the input array is zero
     """
     #define the array for the input of 'verifyFile' function with one element = 0
-    a = np.array([0,1e3,1.5e5,1e7,1.5e11])   
+    a = np.array([1e3,1.5e5,0,1e7,1.5e11])   
     # check if the 'verifyFile' function returns the same array as in input
     assert verifyFile(a).all() == a.all()
