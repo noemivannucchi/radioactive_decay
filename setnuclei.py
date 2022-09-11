@@ -11,30 +11,30 @@ def verifynuclei (nuclei):
     while if the input is not a string, it raises a TypeError
     
     """
+    #define a dictionary to store all the decay constants for each nucleus
+    nuclei_dict = {
+      "Uranium238": 5e-18,
+      "Plutonium239": 9e-13,
+      "Radium226": 1e-11
+    } 
+    
     #verify that the input is a string
     if isinstance(nuclei,str):
        # check if the input is equal to 'Uranium238'
        if nuclei == 'Uranium238':
-           #set the decay constant k (in s^-1) corresponding to the selected nucleus
-           k = 5e-18 
            #return the float decay constant corresponding to the selected nucleus
-           return k
+           return nuclei_dict.get("Uranium238")
        # check if the input is equal to 'Plutonium239'
        if nuclei == 'Plutonium239':
-           #set the decay constant k (in s^-1) corresponding to the selected nucleus
-           k = 9e-13
            #return the float decay constant corresponding to the selected nucleus
-           return k
+           return nuclei_dict.get("Plutonium239")
        # check if the input is equal to 'Radium226'
        if nuclei == 'Radium226':
-           #set the decay constant k (in s^-1) corresponding to the selected nucleus
-           k = 1e-11
            #return the float decay constant corresponding to the selected nucleus
-           return k
+           return nuclei_dict.get("Radium226")
        else:
             #raise an error if the input is not equal to one of the three allowed nuclei
             raise ValueError('Select the type of radioactive nuclei among "Uranium238", "Plutonium239" or "Radium226"')
     else:
         # raise an error if the input is not a string
         raise TypeError('The type of radioactive nuclei must be a string')
-        
