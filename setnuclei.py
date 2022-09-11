@@ -1,6 +1,15 @@
 def verifynuclei (nuclei):
-    """checks that the string input value corresponds to one of the allowed types of radioactive nuclei
-    and set the relative float decay constant k (in s^-1)
+    """
+    The input 'nuclei' is a string that represents the name
+    of the radioactive decaying nuclei 
+    
+    This function checks that the input value corresponds to one of the allowed types of radioactive nuclei
+    among "Uranium238", "Plutonium239" or "Radium226"
+    and return the relative float decay constant k (in s^-1)
+    
+    If the input 'nuclei' does not correspond to one of the allowed types, it raises a ValueError,
+    while if the input is not a string, it raises a TypeError
+    
     """
     #verify that the input is a string
     if isinstance(nuclei,str):
