@@ -62,6 +62,7 @@ The following libraries and packages are required:
 * Numpy
 * scipy.integrate
 * matplotlib.pyplot
+* ConfigParser
 	
 ## Files
 The project is composed of 11 different files:
