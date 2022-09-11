@@ -1,7 +1,14 @@
 def verifyN0 (N0):
-    """ check that the input value N0 is an integer greater than 0. 
-    N0 represents the initial number of radioactive nuclei
-    and it is the initial condition of the differential states 
+    """ 
+    The input 'N0' represents the initial number of radioactive nuclei
+    and it is the initial condition of the differential states.
+    
+    This function checks that the input value 'N0' is an integer greater than 0
+    and it returns the same value.
+    
+    If 'N0' is not an integer, it returns a TypeError, 
+    while if 'N0' is not greater than 0, it returns a ValueError
+    
     """
     #verify that the initial number of radioactive nuclei N0 is an integer
     if isinstance(N0, int):
