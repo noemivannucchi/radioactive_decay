@@ -1,9 +1,16 @@
 import numpy as np 
 
 def verifyFile(t):
-    """checks that the elements of the input array t with the time values (in s) 
-    to be used in the model are correct 
+    """
+    The input 't' is a np.array containing the time values (in s) 
+    to be used in the model
+    
+    This function checks that the elements of the input array 't' are float positive values
     and returns the array t with the sorted values 
+    
+    If the elements of the input array 't' are not floats, it returns a TypeError, 
+    while if they are not positive, it returns a ValueError
+    
     """
     #scroll all elements contained in the array t
     for elem in t:
