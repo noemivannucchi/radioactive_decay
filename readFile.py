@@ -14,15 +14,15 @@ def verifyFile(t):
     """
     #scroll all elements contained in the array t
     for elem in t:
-       #verify that each element is a float value
-       if isinstance(elem, float):
-          #verify that each element is positive
-          if elem >= 0:
-             # return the array t with sorted values 
-             return np.sort(t)
-          else:
-             #raise an error if an element is not positive 
-             raise ValueError('The time values must be positive')
-       else:
-          #raise an error if an element is not float
-          raise TypeError('The time values must be floats')
+      #verify that each element is a float value
+      if not isinstance(elem, float):
+         #raise an error if an element is not float
+         raise TypeError('The time values must be floats')
+      #verify that each element is positive
+      if elem < 0:   
+         #raise an error if an element is not positive 
+         raise ValueError('The time values must be positive')
+         
+       
+    # return the array t with sorted values 
+    return np.sort(t)
