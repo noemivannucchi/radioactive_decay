@@ -6,6 +6,7 @@ Master's degree in physics - curriculum: Material physics and nanoscience
 University of Bologna
 
 ## Table of contents
+* [Usage](#usage)
 * [Description of the project](#description-of-the-project)
 * [Technologies](#technologies)
 * [Files](#files)
@@ -16,7 +17,25 @@ University of Bologna
   * [times.txt](#times.txt)
   * [ode](#ode)
   * [plot](#plot)
-* [Usage](#usage)
+
+## Usage
+To run this program you have to:
+* set in the configuration file 'config.ini' the initial number of radioactive nuclei, the type of nuclei and the name of the text file with the time values
+* execute the file 'ode' in order to solve the differential equations
+* execute the file 'plot' to plot the solutions of the differential equations (number of remaining nuclei after a time t vs t)
+
+
+To run the tests (property and unit) it is mandatory to have installed the package 'pytest' and you have to write on the command line:
+```python
+ !pytest nametest.py
+```
+
+For example, in the case of the test file 'test_readFile', the command is:
+```python
+ !pytest test_readFile.py
+```
+
+This command will execute all the functions that begin with 'test' and it will show if the tests pass or not.
 
 ## Description of the project
 This project aims to solve an ordinary differential equation (ODE) describing the radioactive decay of N nuclei after a time t. 
@@ -76,15 +95,3 @@ Finally the ODE are solved by the function 'odeint'.
 ### plot
 It plots the solution of the differential equation. In this case, it plots the number of radioacive decaying nuclei N remaining after a time t vs time t (in s).
 You can also set x and y labels and put the grid.
-## Usage
-To run the tests (property and unit) it is mandatory to have installed the package 'pytest' and you have to write on the command line:
-```python
- !pytest nametest.py
-```
-
-For example, in the case of the test file 'test_readFile', the command is:
-```python
- !pytest test_readFile.py
-```
-
-This command will execute all the functions that begin with 'test' and it will show if the tests pass or not.
