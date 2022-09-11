@@ -16,6 +16,8 @@ University of Bologna
   * [readFile and test_readFile](#readFile_and_test_readFile)
   * [times.txt](#times.txt)
   * [ode](#ode)
+  * [config.ini](#config.ini)
+  * [results.txt](#results.txt)
   * [plot](#plot)
 
 ## Usage
@@ -93,6 +95,13 @@ It solves the differential equation using the scipy.integrate function "odeint",
 In this file you can insert the initial condition $N_0$ to solve ODE and choose the type of nuclei among "Uranium238", "Plutonium239" or "Radium226".
 Then you have to insert the name of a text file with time values, which will be converted into an array.
 Finally the ODE are solved by the function 'odeint'.
+### config.ini
+This configuration file allows you to set:
+* the type of nuclei among "Uranium238", "Plutonium239" or "Radium226"
+* the initial number of nuclei N0
+* the name of a text file with time values
+### results.txt
+This text file contains the results of the 'odeint' function and it is loaded in the 'plot' file to plot the solutions
 ### plot
 It plots the solution of the differential equation. In this case, it plots the number of radioacive decaying nuclei N remaining after a time t vs time t (in s).
 You can also set x and y labels and put the grid.
