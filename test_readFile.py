@@ -35,7 +35,7 @@ def test_good_values_h(a):
 
 
 #generate a list 'a' composed of float elements smaller than 0
-#for the input of 'model' function and for the input of the test function
+#for the input of 'verifyFile' function and for the input of the test function
 @given(a = st.lists(elements = st.floats(max_value=0, exclude_max = True)))
 def test_ValueError_h(a):
     """test that check if the 'verifyFile' function raises a ValueError
@@ -51,7 +51,7 @@ def test_ValueError_h(a):
 
 
 #generate a list 'a' composed of string elements
-#for the input of 'model' function and for the input of the test function
+#for the input of 'verifyFile' function and for the input of the test function
 @given(a = st.lists(elements = st.text()))
 def test_TypeError_h(a):
     """test that check if the 'verifyFile' function raises a TypeError
@@ -65,7 +65,47 @@ def test_TypeError_h(a):
        with pytest.raises(TypeError):
           verifyFile(b)
 
+#generate an empty list 'a' 
+#for the input of 'verifyFile' function and for the input of the test function
+@given(a = st.just([]))
+def test_empty_array_h(a):
+    """test that check if the 'verifyFile' function raises a ValueError
+    when the input array is empty
+    """
+    # convert the list 'a' into a np.array 'b'
+    b = np.array(a)
+    # check if the 'verifyFile function raises a ValueError using the defined array 'c'
+    with pytest.raises(ValueError):
+          verifyFile(b)
 
+#generate a list 'a' with a NaN element
+#for the input of 'verifyFile' function and for the input of the test function
+@given(a = st.just(np.array([1e3,float("nan"), 1e5])))
+def test_NaN_element_h(a):
+    """test that check if the 'verifyFile' function raises a TypeError
+    when one of the elements of the input array is not a number
+    """
+    # convert the list 'a' into a np.array 'b'
+    b = np.array(a)
+    # check if the 'verifyFile function raises a TypeError using the defined array 'b'
+    with pytest.raises(TypeError):
+          verifyFile(b)
+          
+#generate a list 'a' composed of duplicated values
+#for the input of 'verifyFile' function and for the input of the test function
+@given(a = st.just(np.array([1.3,1.7,1.3,1.5,1.3,1.3,1.5,1.7])))
+def test_duplicated_values_h(a):
+    """positive test that check if the 'verifyFile' function works 
+    when one of the elements is present more than once
+    """
+
+    # convert the list 'a' into a np.array 'b'
+    b = np.array(a)
+    # define an array 'c' composed of the non duplicated elements of the array b
+    c = np.array([1.3,1.5,1.7])
+    # check if the 'verifyFile' function returns the array with non duplicated values
+    assert verifyFile(b).all() == c.all()          
+          
 #===========================
 #UNIT TESTING 
 #all the possible positive and negative combinations
@@ -117,6 +157,37 @@ def test_zero():
     when one of the elements of the input array is zero
     """
     #define the array for the input of 'verifyFile' function with one element = 0
-    a = np.array([1e3,1.5e5,0,1e7,1.5e11])   
+    a = np.array([0.,1e3,1.5e5,1e7,1.5e11])   
     # check if the 'verifyFile' function returns the same array as in input
     assert verifyFile(a).all() == a.all()
+    
+def test_empty_array():
+    """test that check if the 'verifyFile' function raises a ValueError
+    when the array is empty
+    """
+    #define an empty array for the input of 'verifyFile' function 
+    a = np.array([])   
+    # check if the 'verifyFile' function raises a ValueError using the defined array a
+    with pytest.raises(ValueError):
+        verifyFile(a)  
+ 
+def test_NaN_element():
+    """test that check if the 'verifyFile' function raises a TypeError
+    when one of the elements of the input array is not a number
+    """
+    #define the array for the input of 'verifyFile' function with one NaN element
+    a = np.array([1e3,float("nan"), 1e5])     
+    # check if the 'verifyFile' function raises a TypeError using the defined array a
+    with pytest.raises(TypeError):
+        verifyFile(a)
+        
+def test_duplicated_values():
+    """positive test that check if the 'verifyFile' function works 
+    when one of the elements is present more than once
+    """
+    #define the array for the input of 'verifyFile' function with one element 
+    #that appears more than once
+    a = np.array([1.3,1.7,1.3,1.5,1.3,1.3,1.5,1.7])  
+    b = np.array([1.3,1.5,1.7]) 
+    # check if the 'verifyFile' function returns the array with non duplicated values
+    assert verifyFile(a).all() == b.all()
