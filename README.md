@@ -67,7 +67,7 @@ The following libraries and packages are required:
 * ConfigParser
 	
 ## Files
-The project is composed of 11 different files:
+The project is composed of 13 different files:
 ### Model and test_model
 It contains the definition of the diferential equation to be solved. This model represents the exponential decay of one type of radioactive nuclei in time with a decay constant k (in $s^{-1}$). In the 'model' function, it is verified that k is a float value greater than 0 and N is positive, otherwise it raises an error.
 The 'test_model' file contains all the tests (unit and property tests) related to the 'model' function.
@@ -77,7 +77,7 @@ The function in the file 'setn0' checks that the input value $N_0$ is an integer
 The 'test_setn0' file contains all the tests (unit and property tests) related to the function in the file 'setn0'.
 ### setnuclei and test_setnuclei
 These files regard the type of decaying nuclei. This program allows only three choices of radioactive nuclei: "Uranium238", "Plutonium239" or "Radium226". Each of them is related to a specific decay constant k (in $s^{-1}$).
-The function in the file 'setnuclei' checks that the input value is a string and it corresponds to one of the allowed types of radioactive nuclei, otherwise it raises an error. Then it sets the relative float decay constant k.
+The function in the file 'setnuclei' checks that the input value is a string and it corresponds to one of the allowed types of radioactive nuclei contained in the dictionary, otherwise it raises an error. Then it sets the relative float decay constant k.
 The 'test_setnuclei' file contains all the tests (unit and property tests) related to the function in the file 'setnuclei'.
 ### readFile and test_readFile
 These files regard the array containing the time values (in s) to be used in the 'model' function and for the integration of the differential equation.
@@ -92,9 +92,8 @@ It solves the differential equation using the scipy.integrate function "odeint",
 3. t: Time points at which the solution should be reported; 
 4. args: it is a tuple sequence of values that allows additional information to be passed into the model function.
 
-In this file you can insert the initial condition $N_0$ to solve ODE and choose the type of nuclei among "Uranium238", "Plutonium239" or "Radium226".
-Then you have to insert the name of a text file with time values, which will be converted into an array.
-Finally the ODE are solved by the function 'odeint'.
+In this file, the initial condition $N_0$ to solve ODE, the type of nuclei and the name of the text file with time values, which will be converted into an array, are taken from the configuration file.
+Finally the ODE are solved by the function 'odeint' and the results are saved in the file 'results.txt'.
 ### config.ini
 This configuration file allows you to set:
 * the type of nuclei among "Uranium238", "Plutonium239" or "Radium226"
@@ -103,5 +102,5 @@ This configuration file allows you to set:
 ### results.txt
 This text file contains the results of the 'odeint' function and it is loaded in the 'plot' file to plot the solutions
 ### plot
-It plots the solution of the differential equation. In this case, it plots the number of radioacive decaying nuclei N remaining after a time t vs time t (in s).
+It loads the results of the ODE from the file 'results.txt' and it plots the solution of the differential equation. In this case, it plots the number of radioacive decaying nuclei N remaining after a time t vs time t (in s).
 You can also set x and y labels and put the grid.
