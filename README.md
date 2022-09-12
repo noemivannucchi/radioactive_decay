@@ -81,7 +81,7 @@ The function in the file 'setnuclei' checks that the input value is a string and
 The 'test_setnuclei' file contains all the tests (unit and property tests) related to the function in the file 'setnuclei'.
 ### readFile and test_readFile
 These files regard the array containing the time values (in s) to be used in the 'model' function and for the integration of the differential equation.
-The function in the file 'readFile' checks that the elements of the input array t with the time values (in s) are positive float values and returns the same array with sorted values. On the other hand, if the elements are not positive and float, it raises an error.
+The function in the file 'readFile' checks that the input array with the time values (in s) is not empty and it removes the duplicated elements. Then it checks that the elements are positive float numbers and returns the array with sorted values. On the other hand, if the elements are not numbers or positive or float, it raises an error.
 The 'test_readFile' file contains all the tests (unit and property tests) related to the function in the file 'readFile'.
 ### times.txt
 It is just an example of some time values in the case of "Radium226". It can be used to run 'odeint' and 'plt.plot' functions.
