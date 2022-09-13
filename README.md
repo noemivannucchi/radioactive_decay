@@ -19,7 +19,9 @@ University of Bologna
   * [config.ini](#config.ini)
   * [results.txt](#results.txt)
   * [plot](#plot)
-
+  * [fit and fit_funct](#fit_and_fit_funct)
+  * [configfit.ini](#configfit.ini)
+  
 ## Usage
 To run this program you have to:
 * set in the configuration file 'config.ini' the initial number of radioactive nuclei, the type of nuclei and the name of the text file with the time values
@@ -104,3 +106,7 @@ This text file contains the results of the 'odeint' function and it is loaded in
 ### plot
 It loads the results of the ODE from the file 'results.txt' and it plots the solution of the differential equation. In this case, it plots the number of radioacive decaying nuclei N remaining after a time t vs time t (in s).
 You can also set x and y labels and put the grid.
+### fit and fit_funct
+It loads the time values and the corresponding resulting values from 'odeint'. Then it fits these points with the function 'fitfunct', which represents a decreasing exponential and whose definition can be found in the file 'fit_funct'. The initial parameters for the fitting function are taken from the configuration file 'configfit.ini'. In addition, it plots the fit curve on the initial data and it prints R squared and the parameters extracted from the fit with their standard deviations.
+### configfit.ini
+This configuration file allows you to set the initial parameters for the fitting function 'fitfunct'. As an example, it contains the values near those we expect for "Radium226".
