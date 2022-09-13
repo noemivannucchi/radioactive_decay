@@ -15,8 +15,26 @@ filename = parser.get('config', 'filename')
 t = np.loadtxt(filename, unpack = 'True')
 
 
+#read the configuration file 'configfit.ini'
+#in the configuration file you can set the initial parameters for the fitting function 'fitfunct':
+    #N0 which is the initial number of nuclei
+    #k which is the decay constant (in s^-1) related to the chosen nuclei
+    #b which is a constant that has to be close to 0 in this model
+parser.read('configfit.ini')
+
+#get the value corresponding to 'N0', 'k' and 'b' from the file "configfit.ini" and convert it into an integer
+#and two floats, respectively
+N0_string = parser.get('configfit', 'N0')
+N0_i = int(N0_string)
+k_string = parser.get('configfit', 'k')
+k_i = float(k_string)
+b_string = parser.get('configfit', 'b')
+b_i = float(b_string)
+
+
 # start with parameters (N0,k,b) near those we expect for "Radium226" as an example
-p0 = (100, 1e-11, 0.) 
+#they are taken from the configuration file 'configfit.ini'
+p0 = (N0_i, k_i, b_i) 
 # perform the fit using the function 'fitfunct'
 params, cov = scipy.optimize.curve_fit(fitfunct, t, N, p0)
 # extract the parameters from the fit
