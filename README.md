@@ -21,13 +21,27 @@ University of Bologna
   * [plot](#plot)
   * [fit and fit_funct](#fit_and_fit_funct)
   * [configfit.ini](#configfit.ini)
+  * [par_from_fit.txt](#par_from_fit.txt)
+  * [configx.ini](#configx.ini)
+  * [compare_params and test_compareparams](#compare_params_and_test_compareparams)
+  * [inter_extra_polation](#inter_extra_polation)
+  * [inter_extra_function and test_polation](#inter_extra_function_and_test_polation)
   
 ## Usage
-To run this program you have to:
+To solve the ODE you have to:
 * set in the configuration file 'config.ini' the initial number of radioactive nuclei, the type of nuclei and the name of the text file with the time values
 * execute the file 'ode' in order to solve the differential equations
-* execute the file 'plot' to plot the solutions of the differential equations (number of remaining nuclei after a time t vs t)
 
+To plot the solutions of the differential equations (number of remaining nuclei after a time t vs t):
+* execute the file 'plot' 
+
+To do the fit you have to:
+* set in the configuration file 'configfit.ini' the initial parameters (the initial number of nuclei N0, the decay constant k related to the chosen nuclei and a constant b) for the fitting function y = N0 * np.exp(-k * x) + b 
+* execute the file 'fit'
+
+To do the intepolation/extrapolation you have to:
+* set in the configuration file 'configx.ini' the 'x' value of the fitting function y = N0 * exp(-k * x) + b in order to make an interpolation or extrapolation of the corresponding y value.
+* execute the file 'inter_extra_polation'
 
 To run the tests (property and unit) it is mandatory to have installed the package 'pytest' and you have to write on the command line:
 ```python
@@ -55,6 +69,9 @@ After setting the initial conditions, the decay constant and entering the array 
 The figure below shows an example of exponential radioactive decay in the case of the nucleus Radium226, using the time values in the file "times.txt".
 
 ![example_plot_decay](https://user-images.githubusercontent.com/79851600/187657314-e6d6c336-b33a-4131-9278-3d244e72e8f5.png)
+
+
+![fit_exp_decay](https://user-images.githubusercontent.com/79851600/190260278-c07c1fff-80bf-4e1b-ba38-48d49c352483.png)
 
 ## Technologies
 This project is created with:
@@ -110,3 +127,12 @@ You can also set x and y labels and put the grid.
 It loads the time values and the corresponding resulting values from 'odeint'. Then it fits these points with the function 'fitfunct', which represents a decreasing exponential and whose definition can be found in the file 'fit_funct'. The initial parameters for the fitting function are taken from the configuration file 'configfit.ini'. In addition, it plots the fit curve on the initial data and it prints R squared and the parameters extracted from the fit with their standard deviations.
 ### configfit.ini
 This configuration file allows you to set the initial parameters for the fitting function 'fitfunct'. As an example, it contains the values near those we expect for "Radium226".
+### par_from_fit.txt
+
+### configx.ini
+
+### compare_params and test_compareparams
+
+### inter_extra_polation
+
+### inter_extra_function and test_polation
