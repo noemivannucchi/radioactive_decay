@@ -1,16 +1,33 @@
-def model(N,t,k):    
+def model(N,t,k):  
     """
-    The input N is the number of remaining nuclei after a time t (in s), 
-    while the input k is the decay constant (in s^-1)
-    
-    This model represents an exponential decay with a decay constant k (in s^-1)
-    
-    This function checks that k is a float value greater than 0 and that N is positive
-    Then it returns derivative values at requested N and t values as dNdt = model(N,t,k)
+    Parameters
+    ----------
+    N : float
+        it represents the number of remaining nuclei after a time t 
+    t : float
+        it represents a time value (in s)
+    k : float
+        it represents the positive decay constant (in s^-1)
+
+    Description
+    ----------
+    This model represents an exponential decay with a decay constant k (in s^-1) and
+    it is used to simulate the decay of radioactive nuclei.
+ 
+    Raises
+    ------
+    ValueError
+        raised if N is not positive or k is not greater than 0
+    TypeError
+        raised if k is not a float value
+
+    Returns
+    -------
+    dNdt : float
+        it returns derivative values at requested N and t values as dNdt = model(N,t,k)
+
+    """
    
-    If N is not positive or k is not greater than 0, it raises a ValueError,
-    while if k is not a float value, it raises  TypeError
-    """
     #verify that k is a float value
     if isinstance(k, float):
           #verify that N is positive
