@@ -39,4 +39,4 @@ def compareparams(p0, N0, k, b, stdevs):
         # otherwise, print that more points are needed to better estimate the parameters N0, k, b
         print ("The parameters extracted from the fit are not all coherent with the expected ones. \
                Therefore, more points are needed to better estimate the parameters N0, k, b ") 
-        return "not coherent"            
+        return "not coherent"           
