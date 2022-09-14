@@ -21,8 +21,9 @@ def compareparams(p0, N0, k, b, stdevs):
     Returns
     -------
     If the expected parameters are within the uncertainty range of the extracted ones, 
-    it is printed that the extracted parameters are coherent with the expected ones.
-    Otherwise, it is printed that more points are needed to better estimate the parameters N0, k, b.
+    it is printed that the extracted parameters are coherent with the expected ones and it is returned "coherent".
+    Otherwise, it is printed that more points are needed to better estimate the parameters N0, k, b
+    and it is returned "not coherent".
 
     """
     # check if the expected parameters contained in the tuple 'p0' 
