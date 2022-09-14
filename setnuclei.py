@@ -1,16 +1,29 @@
 def verifynuclei (nuclei):
     """
-    The input 'nuclei' is a string that represents the name
-    of the radioactive decaying nuclei 
-    
-    This function checks that the input value corresponds to one of the allowed types of radioactive nuclei
-    among "Uranium238", "Plutonium239" or "Radium226"
-    and return the relative float decay constant k (in s^-1)
-    
-    If the input 'nuclei' does not correspond to one of the allowed types, it raises a ValueError,
-    while if the input is not a string, it raises a TypeError
+    Parameters
+    ----------
+    nuclei : string
+             it represents the name of the radioactive decaying nuclei 
+
+    Description
+    ----------
+    This function allows to set the decay constant k (in s^-1) 
+    corresponding to the type of nuclei in input
+
+    Raises
+    ------
+    ValueError
+        raised if the input 'nuclei' does not correspond to one of the allowed types
+        of radioactive nuclei among "Uranium238", "Plutonium239" or "Radium226"
+    TypeError
+        raised of the input is not a string
+
+    Returns
+    -------
+    It returns the float decay constant k (in s^-1) corresponding to the type of nuclei in input.
     
     """
+    
     #define a dictionary to store all the decay constants for each nucleus
     nuclei_dict = {
       "Uranium238": 5e-18,
