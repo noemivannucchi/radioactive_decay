@@ -27,9 +27,9 @@ def compareparams(p0, N0, k, b, stdevs):
     """
     # check if the expected parameters contained in the tuple 'p0' 
     # are within the uncertainty range of the extracted ones from the fit (N0, k, b)
-    if N0 - stdevs[0] < p0[0] < N0 + stdevs[0] \
-       and k - stdevs[1] < p0[1] < k + stdevs[1] \
-           and b - stdevs[2] < p0[2] < b + stdevs[2]:
+    if N0 - stdevs[0] <= p0[0] <= N0 + stdevs[0] \
+       and k - stdevs[1] <= p0[1] <= k + stdevs[1] \
+           and b - stdevs[2] <= p0[2] <= b + stdevs[2]:
                # if the expected parameters are within the uncertainty range of the extracted ones,
                # print that the extracted parameters are coherent with the expected ones
                print ("The parameters extracted from the fit are coherent with the expected ones")
