@@ -34,6 +34,6 @@ x = float(x_string)
 #set in 'configx.ini' file, using the fitting function N0 * np.exp(-k * x) + b
 #and the parameters extracted from the fit N0, k, b.
 #As an example, here it is an extrapolation with x = 2e11 s
-N_polation = interextra(x, N0, k, b, t)
+interextra(x, N0, k, b, t)
 
 
