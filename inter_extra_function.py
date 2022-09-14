@@ -26,7 +26,7 @@ def interextra(x, N0, k, b, t):
     -------
     This function checks if the input time 'x' is whitin the minimum and the maximum time values of the array 't',
     thus distinguishing the case of interpolation and extrapolation, 
-    and print the number of remaining nuclei N at the selected time x.
+    and returns a dictionary 'd' containing the number of remaining nuclei N at the selected time x.
     
     """
     # define the decreasing exponential function 'N', which is the same as the fitting function
@@ -39,7 +39,21 @@ def interextra(x, N0, k, b, t):
         # it is the interpolation case and it is printed the resulting 
         # number of remaining nuclei N at the time x
         print (f"Interpolation: if t = {x}, N = {N}" )
+        #define a dictionary 'd' for the interpolation case. It contains the string 'Interpolation', 
+        #the number of calculated remaining nuclei N and the selected time x
+        d = dict(); 
+        d['Case'] = "Interpolation"
+        d['x']   = x
+        d['N']   = N
+        return d         
     else:
         # otherwise, it is the extrapolation case and it is printed the resulting
         # number of remaining nuclei N at a future time x
         print (f"Extrapolation: if t = {x}, N = {N}" )
+        #define a dictionary 'd' for the extrapolation case. It contains the string 'Extrapolation', 
+        #the number of calculated remaining nuclei N and the selected time x
+        d = dict(); 
+        d['Case'] = "Extrapolation"
+        d['x']   = x
+        d['N']   = N
+        return d
