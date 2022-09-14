@@ -3,6 +3,7 @@ from configparser import ConfigParser
 import numpy as np
 import scipy.optimize
 from fit_funct import fitfunct
+from compare_params import compareparams
 
 #load the array with 'odeint' results from the text file 'results.txt'
 N = np.loadtxt('results.txt', dtype=float)
@@ -32,11 +33,13 @@ b_string = parser.get('configfit', 'b')
 b_i = float(b_string)
 
 
-# start with parameters (N0,k,b) near those we expect for "Radium226" as an example
+# start with parameters (N0_i,k_i,b_i) near those we expect for "Radium226" as an example
 #they are taken from the configuration file 'configfit.ini'
 p0 = (N0_i, k_i, b_i) 
 # perform the fit using the function 'fitfunct'
 params, cov = scipy.optimize.curve_fit(fitfunct, t, N, p0)
+# save the array 'params' with the parameters from the fit in a text file 'par_from_fit.txt'
+np.savetxt('par_from_fit.txt', params)
 # extract the parameters from the fit
 N0, k, b = params
 
@@ -57,3 +60,6 @@ stdevs = np.sqrt(np.diag(cov))
 print (f"N0 = {N0} +/- {stdevs[0]}" )
 print (f"k = {k} +/- {stdevs[1]}" )
 print (f"b = {b} +/- {stdevs[2]}" )
+
+#check that the parameters extracted from the fit are coherent with the expected ones
+compareparams(p0,N0,k,b,stdevs)
