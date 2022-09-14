@@ -33,7 +33,9 @@ def compareparams(p0, N0, k, b, stdevs):
                # if the expected parameters are within the uncertainty range of the extracted ones,
                # print that the extracted parameters are coherent with the expected ones
                print ("The parameters extracted from the fit are coherent with the expected ones")
+               return "coherent"
     else:
         # otherwise, print that more points are needed to better estimate the parameters N0, k, b
         print ("The parameters extracted from the fit are not all coherent with the expected ones. \
-               Therefore, more points are needed to better estimate the parameters N0, k, b ")           
+               Therefore, more points are needed to better estimate the parameters N0, k, b ") 
+        return "not coherent"            
