@@ -34,7 +34,7 @@ def interextra(x, N0, k, b, t):
     # convert the input array into a list 'l'
     l = t.tolist()
     # check if the input 'x' is whitin the minimum and the maximum time values of the array 't'
-    if min(l) < x < max(l):
+    if min(l) <= x <= max(l):
         # if 'x' is within the minimum and the maximum values of the array 't',
         # it is the interpolation case and it is printed the resulting 
         # number of remaining nuclei N at the time x
