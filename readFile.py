@@ -2,21 +2,32 @@ import numpy as np
 
 def verifyFile(t):
     """
-    The input 't' is a np.array containing the time values (in s) 
-    to be used in the model
-    
-    This function checks that the input array 't' is not empty, otherwise it
-    returns a ValueError. 
-    Then, it removes duplicated values from the input array 't' and 
+    Parameters
+    ----------
+    t : numpy.aray
+        it contains the time values (in s) to be used in the model
+
+    Description
+    ----------
+    This function checks the type and the values of the elements 
+    of the input array 't'. Then, it removes duplicated values from the input array 't' and 
     it creates a new array 'newt' with non duplicated values.
-    In addition, it checks that the elements of the array 'newt' are float 
-    positive numbers and returns the array 'newt' with the sorted values.
+    Finally, it returns the array 'newt' with sorted values.
     
-    If the elements of the array 'newt' are not floats or not a number, 
-    it returns a TypeError, 
-    while if they are not positive, it returns a ValueError
-    
+    Raises
+    ------
+    ValueError
+        raised if the input array 't' is empty or 
+        if the elements of the array 'newt' are not positive
+    TypeError
+        raised if the elements of the array 'newt' are not floats or not a number
+
+    Returns
+    -------
+    it returns the array 'newt' with sorted and non duplicated values.
+
     """
+    
     #verify that the array is not empty
     if len(t) == 0:
         raise ValueError('The input array is empty')
