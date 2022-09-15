@@ -17,7 +17,7 @@ params = np.loadtxt('par_from_fit.txt', dtype=float)
 N0, k, b = params
 
 
-#read the configuration file 'configfit.ini'
+#read the configuration file 'configx.ini'
 #This configuration file allows you to set the 'x' value of the fitting function y = N0 * exp(-k * x) + b
 #in order to make an interpolation or extrapolation of the corresponding y value.
 # - x represents a time value (in s)
